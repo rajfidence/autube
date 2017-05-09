@@ -16,7 +16,7 @@ use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
 FacebookSession::setDefaultApplication( 'Your APP ID','Your APP Secret' );
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://demos.krizna.com/1353/fbconfig.php' );
+	$helper = new FacebookRedirectLoginHelper('http://demos.krizna.com/1353/fbconfig.php' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -31,14 +31,14 @@ if ( isset( $session ) ) {
   $response = $request->execute();
   // get response
   $graphObject = $response->getGraphObject();
-     	$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
- 	    $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
-	    $femail = $graphObject->getProperty('email');    // To Get Facebook email ID
+		$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
+		$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
+		$femail = $graphObject->getProperty('email');    // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	    $_SESSION['FBID'] = $fbid;           
-        $_SESSION['FULLNAME'] = $fbfullname;
-	    $_SESSION['EMAIL'] =  $femail;
-    /* ---- header location after session ----*/
+		$_SESSION['FBID'] = $fbid;           
+		$_SESSION['FULLNAME'] = $fbfullname;
+		$_SESSION['EMAIL'] =  $femail;
+	/* ---- header location after session ----*/
   header("Location: index.php");
 } else {
   $loginUrl = $helper->getLoginUrl();
