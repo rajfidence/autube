@@ -16,12 +16,53 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="autoload.php" />
+    <Compile Include="fbconfig.php" />
     <Compile Include="index.php" />
+    <Compile Include="logout.php" />
+    <Compile Include="src\Facebook\Entities\AccessToken.php" />
+    <Compile Include="src\Facebook\Entities\SignedRequest.php" />
+    <Compile Include="src\Facebook\FacebookAuthorizationException.php" />
+    <Compile Include="src\Facebook\FacebookCanvasLoginHelper.php" />
+    <Compile Include="src\Facebook\FacebookClientException.php" />
+    <Compile Include="src\Facebook\FacebookJavaScriptLoginHelper.php" />
+    <Compile Include="src\Facebook\FacebookOtherException.php" />
+    <Compile Include="src\Facebook\FacebookPageTabHelper.php" />
+    <Compile Include="src\Facebook\FacebookPermissionException.php" />
+    <Compile Include="src\Facebook\FacebookRedirectLoginHelper.php" />
+    <Compile Include="src\Facebook\FacebookRequest.php" />
+    <Compile Include="src\Facebook\FacebookRequestException.php" />
+    <Compile Include="src\Facebook\FacebookResponse.php" />
+    <Compile Include="src\Facebook\FacebookSDKException.php" />
+    <Compile Include="src\Facebook\FacebookServerException.php" />
+    <Compile Include="src\Facebook\FacebookSession.php" />
+    <Compile Include="src\Facebook\FacebookSignedRequestFromInputHelper.php" />
+    <Compile Include="src\Facebook\FacebookThrottleException.php" />
+    <Compile Include="src\Facebook\GraphAlbum.php" />
+    <Compile Include="src\Facebook\GraphLocation.php" />
+    <Compile Include="src\Facebook\GraphObject.php" />
+    <Compile Include="src\Facebook\GraphPage.php" />
+    <Compile Include="src\Facebook\GraphSessionInfo.php" />
+    <Compile Include="src\Facebook\GraphUser.php" />
+    <Compile Include="src\Facebook\GraphUserPage.php" />
+    <Compile Include="src\Facebook\HttpClients\FacebookCurl.php" />
+    <Compile Include="src\Facebook\HttpClients\FacebookCurlHttpClient.php" />
+    <Compile Include="src\Facebook\HttpClients\FacebookGuzzleHttpClient.php" />
+    <Compile Include="src\Facebook\HttpClients\FacebookHttpable.php" />
+    <Compile Include="src\Facebook\HttpClients\FacebookStream.php" />
+    <Compile Include="src\Facebook\HttpClients\FacebookStreamHttpClient.php" />
     <Compile Include="src\Google_Client.php" />
     <Compile Include="src\Google_Service.php" />
     <Compile Include="youtube_search.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
+    <Folder Include="src\Facebook\" />
+    <Folder Include="src\Facebook\Entities\" />
+    <Folder Include="src\Facebook\HttpClients\" />
+    <Folder Include="src\Facebook\HttpClients\certs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\Facebook\HttpClients\certs\DigiCertHighAssuranceEVRootCA.pem" />
   </ItemGroup>
 </Project>
