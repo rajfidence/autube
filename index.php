@@ -1,8 +1,8 @@
 <?php
 if (@$_GET['q'] && @$_GET['maxResults']) {
     // Call set_include_path() as needed to point to your client library.
-    require_once ($_SERVER["DOCUMENT_ROOT"].'/usermanager/google-api-php-client/src/Google_Client.php');
-    require_once ($_SERVER["DOCUMENT_ROOT"].'/usermanager/google-api-php-client/src/contrib/Google_YouTubeService.php');
+    require_once ($_SERVER["DOCUMENT_ROOT"].'/usermanager/src/Google_Client.php');
+    require_once ($_SERVER["DOCUMENT_ROOT"].'/usermanager/src/Google_Service.php');
 
     /* Set $DEVELOPER_KEY to the "API key" value from the "Access" tab of the
     Google APIs Console <http://code.google.com/apis/console#access>
@@ -44,6 +44,7 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
             htmlspecialchars($e->getMessage()));
     }
 }
+
 ?>
 
 <!doctype html>
