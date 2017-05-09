@@ -51,12 +51,13 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
 <html>
 <head>
     <title>YouTube Search</title>
-    <link href="//www.w3resource.com/includes/bootstrap.css" rel="stylesheet">
+    <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
     <style type="text/css">
         body{margin-top: 50px; margin-left: 50px}
     </style>
 </head>
 <body>
+    
 <form method="GET">
     <div>
         Search Term: <input type="search" id="q" name="q" placeholder="Enter Search Term">
