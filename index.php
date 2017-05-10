@@ -76,7 +76,7 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
                 <li><?php echo $_SESSION['FULLNAME']; ?></li>
                 <li class="nav-header">Facebook Email</li>
                 <li><?php echo $_SESSION['EMAIL']; ?></li>
-                <div><a href="logout.php">Logout</a></div>
+                -<!--<div><a href="logout.php">Logout</a></div>-->
             </ul>
         </div>
     </div><?php else: ?>     <!-- Before login -->
@@ -86,9 +86,6 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
         </div>
     </div>
     <?php endif ?>
-
-
-
     <div>
         Search Term: <input type="search" id="q" name="q" placeholder="Enter Search Term">
     </div>
