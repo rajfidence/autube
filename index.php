@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (@$_GET['q'] && @$_GET['maxResults']) {
     // Call set_include_path() as needed to point to your client library.
     require_once ($_SERVER["DOCUMENT_ROOT"].'/src/Google_Client.php');
@@ -64,9 +65,7 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
 
     <?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
     <div class="container">
-        <div class="hero-unit">
-            <h1>Hello <?php echo $_SESSION['USERNAME']; ?></h1>
-        </div>
+        <h1>Hello <?php echo $_SESSION['FULLNAME']; ?></h1>
         <div class="span4">
             <ul class="nav nav-list">
                 <li class="nav-header">Image</li>
@@ -82,8 +81,6 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
         </div>
     </div><?php else: ?>     <!-- Before login -->
     <div class="container">
-        <h1>Login with Facebook</h1>
-        Not Connected
         <div>
             <a href="fbconfig.php">Login with Facebook</a>
         </div>
