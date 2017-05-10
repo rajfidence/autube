@@ -20,6 +20,7 @@
     <Compile Include="dbconfig.php" />
     <Compile Include="fbconfig.php" />
     <Compile Include="functions.php" />
+    <Compile Include="header.php" />
     <Compile Include="index.php" />
     <Compile Include="logout.php" />
     <Compile Include="src\Facebook\Entities\AccessToken.php" />
@@ -59,6 +60,9 @@
     <Compile Include="youtube_search.php" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="fonts\" />
+    <Folder Include="Scripts\" />
     <Folder Include="src\" />
     <Folder Include="src\Facebook\" />
     <Folder Include="src\Facebook\Entities\" />
@@ -66,6 +70,28 @@
     <Folder Include="src\Facebook\HttpClients\certs\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\custom.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="import.sql" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="src\Facebook\HttpClients\certs\DigiCertHighAssuranceEVRootCA.pem" />
   </ItemGroup>
 </Project>

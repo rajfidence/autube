@@ -46,8 +46,7 @@ if ( isset( $session )) {
 	/* ---- header location after session ----*/
   header("Location: index.php");
 } else {
-	$loginUrl = $helper->getLoginUrl();
-	//$loginUrl = $helper->getLoginUrl(array('scope' => 'email'));
+	$loginUrl = $helper->getLoginUrl(array('scope' => 'email'));
 
  header("Location: ".$loginUrl);
 }

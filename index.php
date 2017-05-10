@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (@$_GET['q'] && @$_GET['maxResults']) {
     // Call set_include_path() as needed to point to your client library.
@@ -37,10 +38,12 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
             }
         }
 
-    } catch (Google_ServiceException $e) {
+    }
+    catch (Google_ServiceException $e) {
         $htmlBody .= sprintf('<p>A service error occurred: <code>%s</code></p>',
             htmlspecialchars($e->getMessage()));
-    } catch (Google_Exception $e) {
+    }
+    catch (Google_Exception $e) {
         $htmlBody .= sprintf('<p>An client error occurred: <code>%s</code></p>',
             htmlspecialchars($e->getMessage()));
     }
@@ -48,55 +51,123 @@ if (@$_GET['q'] && @$_GET['maxResults']) {
 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>YouTube Search</title>
-    <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
-    <style type="text/css">
-        body{margin-top: 50px; margin-left: 50px}
-    </style>
+    <title>Autube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.js"></script>
 </head>
 <body>
-    
+    <!--Navbar-->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand">Autube</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
 
-<form method="GET">
 
-    <?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://webpage.pace.edu/dp49837p/portfolio/home.html" target="_blank">About Me</a>
+                    </li><?php if ($_SESSION['FBID']):
+                                   {?>
+                    <li>
+                        <a href="logout.php">Logout</a>
+                    </li><?php }?><?php else: ?>
+                    <li>
+                        <a href="fbconfig.php">Login with Facebook</a>
+                    </li><?php endif ?>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1>Autube</h1>
+                <p class="lead">Lorem Ipsum is just a dummy text</p>
+            </div>
+        </div>
+    </div>
+
+    <?php if ($_SESSION['FBID']): ?>
     <div class="container">
-        <h1>Hello <?php echo $_SESSION['FULLNAME']; ?></h1>
         <div class="span4">
             <ul class="nav nav-list">
                 <li class="nav-header">Image</li>
-                <li><img src="https://graph.facebook.com/<?php echo $_SESSION['FBID'];?>/picture?width=150&height=150"></li>
+                <li>
+                    <img src="https://graph.facebook.com/<?php echo $_SESSION['FBID'];?>/picture?width=150&height=150" />
+                </li>
                 <li class="nav-header">Facebook ID</li>
-                <li><?php echo  $_SESSION['FBID']; ?></li>
+                <li>
+                    <?php echo  $_SESSION['FBID']; ?>
+                </li>
                 <li class="nav-header">Facebook fullname</li>
-                <li><?php echo $_SESSION['FULLNAME']; ?></li>
+                <li>
+                    <?php echo $_SESSION['FULLNAME']; ?>
+                </li>
                 <li class="nav-header">Facebook Email</li>
-                <li><?php echo $_SESSION['EMAIL']; ?></li>
-                -<!--<div><a href="logout.php">Logout</a></div>-->
+                <li>
+                    <?php echo $_SESSION['EMAIL']; ?>
+                </li>
             </ul>
-        </div>
-    </div><?php else: ?>     <!-- Before login -->
-    <div class="container">
-        <div>
-            <a href="fbconfig.php">Login with Facebook</a>
         </div>
     </div>
     <?php endif ?>
-    <div>
-        Search Term: <input type="search" id="q" name="q" placeholder="Enter Search Term">
+
+    <!--Youtube Search Panel-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <form method="GET" class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="q" class="col-lg-2 control-label">Search</label>
+                            <div class="col-lg-10">
+                                <input class="form-control" type="search" name="q" placeholder="Enter Search Term" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="maxResults" class="col-lg-2 control-label">Max Results</label>
+                            <div class="col-lg-10">
+                                <input class="form-control" type="number"name="maxResults" min="1" max="50" step="1" value="25" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <input type="submit" class="btn btn-primary" value="Search"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
-    <div>
-        Max Results: <input type="number" id="maxResults" name="maxResults" min="1" max="50" step="1" value="25">
-    </div>
-    <input type="submit" value="Search">
-</form>
-<h3>Videos</h3>
-<ul><?php echo @$videos; ?></ul>
-<h3>Channels</h3>
-<ul><?php echo @$channels; ?></ul>
+
+    <div class="container">
+        <h3>Videos</h3>
+        <ul>
+            <?php echo @$videos; ?>
+        </ul>
+        <h3>Channels</h3>
+        <ul>
+            <?php echo @$channels; ?>
+        </ul>
+    </div> 
 </body>
 </html>
+
+
+
